@@ -1,0 +1,246 @@
+:root {
+  --paper: #f1eee6;
+  --card: #fffdf9;
+  --ink: #23201b;
+  --ink-soft: #6b6355;
+  --border: #ddd5c7;
+  --moss: #4a6656;
+  --moss-dark: #38503f;
+  --brick: #a64b3f;
+  --radius: 3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.app__header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 24px;
+}
+
+.app__logo {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.app__tagline {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.app__error {
+  background: #f6e6e3;
+  color: var(--brick);
+  border: 1px solid #e3c3bd;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  margin: 0 0 20px;
+}
+
+.app__loading {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* Form */
+
+.note-form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.note-form__title {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0 0 10px;
+  outline: none;
+}
+
+.note-form__title::placeholder {
+  color: #a89f8e;
+}
+
+.note-form__body {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  padding: 14px 0 0;
+  resize: vertical;
+  outline: none;
+  color: var(--ink);
+}
+
+.note-form__body::placeholder {
+  color: #a89f8e;
+}
+
+.note-form__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.note-form__counter {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.note-form__counter--low {
+  color: var(--brick);
+}
+
+.note-form__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--moss);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--moss-dark);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--ink-soft);
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink-soft);
+}
+
+/* Notes grid */
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .note-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.note-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 130px;
+}
+
+.note-card__title {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.note-card__body {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+  flex: 1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.note-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.note-card__date {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.note-card__actions {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon-btn:hover {
+  color: var(--moss-dark);
+  text-decoration: underline;
+}
+
+.icon-btn--danger:hover {
+  color: var(--brick);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 60px 0;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
